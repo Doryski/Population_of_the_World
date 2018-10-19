@@ -14,7 +14,7 @@ I got the hypothetical land area allowing to live of 135 million sq km.
 Then I multiplied max population density (200 000 people per sq km) by 135 million sq km.
 and I got the result 27 trillion people which is the number of hypothetical maximum world population.
 
-I count 27 trillion as 100%.
+I considered 27 trillion as 100%.
 Then I made predictions on world's population to find out how the percentage (x_population / max_population) will change over time
 and around which year those numbers will be achieved.
 
