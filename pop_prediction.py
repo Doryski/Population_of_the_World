@@ -60,3 +60,6 @@ new_data['Year'] = np.round(y_pred, 0).astype(np.int64)
 ### Concatenating old and predicted DataFrames
 f = pd.concat([df, new_data], ignore_index=True)
 f['Density'] = np.round(f['Density'],1)
+
+# new_data.to_csv(".\predicted_pop.csv")
+# f.to_csv(".\real_and_predicted_pop.csv")
