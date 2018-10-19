@@ -7,8 +7,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 plt.style.use('ggplot')
 
 ### PREPARING DATA
-file = ".\pop.csv" # downloaded from data.worldbank.org, cleaned in excel
-df = pd.read_csv(file, delimiter=';')
+file = ".\df_pop.csv" # downloaded from data.worldbank.org, cleaned in excel
+df = pd.read_csv(file, delimiter=',')
 
 land_area = 135 * 1000000 # 135 million sq km
 max_density = 200000 # 200 000 people per sq km
@@ -61,5 +61,5 @@ new_data['Year'] = np.round(y_pred, 0).astype(np.int64)
 f = pd.concat([df, new_data], ignore_index=True)
 f['Density'] = np.round(f['Density'],1)
 
-# new_data.to_csv(".\predicted_pop.csv")
-# f.to_csv(".\real_and_predicted_pop.csv")
+# new_data.to_csv(".\df_predicted_pop.csv")
+# f.to_csv(".\df_real_and_predicted_pop.csv")
