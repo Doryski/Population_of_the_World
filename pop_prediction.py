@@ -16,8 +16,8 @@ max_pop = land_area * max_density # 27 * 10^12 = 27 trillion
 
 df['Max_pop%'] = round(df['Population'] / max_pop * 100, 4)
 df['Density'] = df['Population'] / land_area
-df = df[['Year','Population','Max_pop%','Density']]
-df = df[13:] # cutting off first 18 years from dataset gives us the best prediction accuracy score
+df = df[['Year','Population','Max_pop%','Density']] # created dataframe
+df = df[13:] # cutting off first 13 years from dataset gives us the best prediction accuracy score
 ### Predicting Population amount depending on Year
 X = np.array(df['Year']).reshape(-1,1)
 y = np.array(df['Population'])
