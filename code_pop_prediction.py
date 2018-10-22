@@ -38,6 +38,8 @@ model = sm.OLS(y_pred, y_test).fit()
 # Plotting comparison of real and predicted population values
 plt.plot(X_test, y_test,  color='r', label="Test values")
 plt.plot(X_test, y_pred, color='b', label="Predicted values")
+plt.xlabel("Year")
+plt.ylabel("Population")
 plt.title("Test values vs predicted values")
 plt.legend(loc="lower right")
 plt.show()
