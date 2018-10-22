@@ -10,3 +10,8 @@ plt.plot(df['Year'], df['Population'], "g")
 plt.xlabel("Year")
 plt.ylabel("Population")
 plt.show()
+# Population change from 2000 to 2088
+plt.plot(df['Year'][22:41], df['Population'][22:41], 'r')
+plt.xlabel("Year")
+plt.ylabel("Population")
+plt.show()
