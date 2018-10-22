@@ -16,12 +16,12 @@ max_pop = land_area * max_density # 27 * 10^12 = 27 trillion
 
 df['Max_pop%'] = round(df['Population'] / max_pop * 100, 4)
 df['Density'] = df['Population'] / land_area
-df = df[['Year','Population','Max_pop%','Density']] # created dataframe
-df = df[13:] # cutting off first 13 years from dataset gives us the best prediction accuracy score
+df = df[['Year','Population','Max_pop%','Density']]
+df = df[13:] # cutting off first 13 rows from dataset gives us the best prediction accuracy score
 ### Predicting Population amount depending on Year
 X = np.array(df['Year']).reshape(-1,1)
 y = np.array(df['Population'])
-forecast_out = 10
+forecast_out = 10 # amount of values to predict
 X_train = X[:-forecast_out]
 X_test = X[-forecast_out:]
 y_train = y[:-forecast_out]
@@ -36,8 +36,10 @@ model = sm.OLS(y_pred, y_test).fit()
 #print('Standard error:', model.bse) # [0.00061961]
 
 # Plotting comparison of real and predicted population values
-plt.plot(X_test, y_test,  color='r')
-plt.plot(X_test, y_pred, color='b')
+plt.plot(X_test, y_test,  color='r', label="Test values")
+plt.plot(X_test, y_pred, color='b', label="Predicted values")
+plt.title("Test values vs predicted values")
+plt.legend(loc="lower right")
 plt.show()
 ### Creating new Dataframe that will include future predictions
 list = [0.05,0.5,1,2,5,10,25,50,75,100]
