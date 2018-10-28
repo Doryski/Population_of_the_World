@@ -36,10 +36,11 @@ model = sm.OLS(y_pred, y_test).fit()
 #print('Standard error:', model.bse) # [0.00061961]
 
 # Plotting comparison of real and predicted population values
-plt.plot(X_test, y_test,  color='r', label="Test values")
-plt.plot(X_test, y_pred, color='b', label="Predicted values")
+plt.plot(X_test, y_test/1000000000,  color='r', label="Test values")
+plt.plot(X_test, y_pred/1000000000, color='b', label="Predicted values")
 plt.xlabel("Year")
-plt.ylabel("Population")
+plt.ylabel("Population\n[billions of people]")
+plt.xticks(np.arange(2008,2018,1))
 plt.title("Test values vs predicted values")
 plt.legend(loc="lower right")
 plt.show()
