@@ -29,21 +29,26 @@ y_test = y[-forecast_out:]
 reg = linear_model.LinearRegression()
 reg.fit(X_train, y_train)
 y_pred = reg.predict(X_test)
-print('Accuracy/variance score: %.2f' % r2_score(y_test, y_pred)) # 0.966
+
 # Counting standard error
 import statsmodels.api as sm
 model = sm.OLS(y_pred, y_test).fit()
-#print('Standard error:', model.bse) # [0.00061961]
+#print(f'Standard error: {model.bse}) 
 
 # Plotting comparison of real and predicted population values
-plt.plot(X_test, y_test/1000000000,  color='r', label="Test values")
-plt.plot(X_test, y_pred/1000000000, color='b', label="Predicted values")
-plt.xlabel("Year")
-plt.ylabel("Population\n[billions of people]")
-plt.xticks(np.arange(2008,2018,1))
-plt.title("Test values vs predicted values")
-plt.legend(loc="lower right")
-plt.show()
+def plot_real_and_predicted_pop():
+    plt.plot(X_test, y_test/1000000000,  color='r', label="Test values")
+    plt.plot(X_test, y_pred/1000000000, color='b', label="Predicted values")
+    plt.xlabel("Year")
+    plt.ylabel("Population\n[billions of people]")
+    plt.xticks(np.arange(2008,2018,1))
+    plt.title("Test values vs predicted values")
+    plt.text(2008, 7.5, f"Accuracy/variance score: {round(r2_score(y_test, y_pred), 4)}", 
+            bbox=dict(facecolor='red', alpha=0.2))
+    plt.legend(loc="lower right")
+    plt.savefig('plot_real_and_predicted_pop.png')
+    plt.show()
+plot_real_and_predicted_pop()
 ### Creating new Dataframe that will include future predictions
 list = [0.05,0.5,1,2,5,10,25,50,75,100]
 a = np.empty((len(list),1))
