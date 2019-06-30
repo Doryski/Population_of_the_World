@@ -18,4 +18,6 @@ I considered 27 trillion as 100%.
 Then I made predictions on world's population to find out how the percentage (x_population / max_population) will change over time
 and around which year those numbers will be achieved.
 
-I made dataframes and plots which present those predictions.
+I've also made some simple predictions and its visualizations on how human population will increase over years.
+
+
